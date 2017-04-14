@@ -7,7 +7,7 @@ CityDataView.prototype = {
     this.clear()
     cityInfo.forEach(function(category){
       var pTag = document.createElement('p')
-      pTag.innerText = category.name + ': ' + category.score_out_of_10
+      pTag.innerText = category.name + ': ' + Math.round(category.score_out_of_10)
       this.sectionElement.appendChild(pTag)
     }.bind(this))
   },
