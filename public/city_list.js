@@ -4,7 +4,7 @@ var CityList = function(url){
 }
 
 CityList.prototype = {
-  getData: function(){
+  getData: function(callback){
     var request = new XMLHttpRequest()
     request.open('GET', this.url)
     request.onload = function(){
@@ -12,8 +12,9 @@ CityList.prototype = {
         var jsonString = request.responseText
         var cityInfo = JSON.parse(jsonString)
         this.cities = cityInfo._links['ua:item']
-        console.log('this cities',this.cities)
       }
+
+      callback(this.cities)
     }.bind(this)
     request.send()
   }
