@@ -11,10 +11,12 @@ app = function(){
     //adds on change listener which can grab url for more detailed info
     citySelectMenu.selectContainer.addEventListener('change', function(){
       //build a url for more detailed city info, and sends the request to the API
+      var cityName = cities[this.value].name
+
       var url = cities[this.value].href + 'scores'
-      cityStats.getData(url, function(cityInfo){
+      cityStats.getData(url, cityName, function(cityInfo){
         //populates the section once cityInfo has been retrieved from API
-        cityDataView.populate(cityInfo)
+        cityDataView.populate(cityInfo, cityName)
       })
     })
   })
