@@ -10,6 +10,7 @@ CityStats.prototype = {
       if (request.status === 200){
         var jsonString = request.responseText
         var cityInfo = JSON.parse(jsonString)
+        console.log(cityInfo)
         this.cityInfo = cityInfo.categories
         callback(this.cityInfo)
       }
