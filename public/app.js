@@ -2,20 +2,22 @@ app = function(){
   
   var cityList = new CityList('https://api.teleport.org/api/urban_areas')
   var citySelectMenu = new CitySelect(document.querySelector('#city-select'))
-  var cityStats = new CityStats('https://api.teleport.org/api/urban_areas/slug:san-francisco-bay-area/scores/')
+  var cityStats = new CityStats()
+  var cityDataView = new CityDataView(document.querySelector('#city-data'))
 
   //gets the data and populates the select menu
   cityList.getData(function(cities){
     citySelectMenu.populateSelect(cities)
 
     citySelectMenu.selectContainer.addEventListener('change', function(){
-      var selectedCity = this.value
-      var url = cities[selectedCity].href
-      console.log(url)
+      var url = cities[this.value].href + 'scores'
+      cityStats.getData(url, function(cityInfo){
+        cityDataView.populate(cityInfo)
+      })
     })
   })
 
-  cityStats.getData()
+  
   
   //on select change, grab relevant link from cities and make a request to the API for city stats
 

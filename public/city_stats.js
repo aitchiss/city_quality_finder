@@ -1,18 +1,18 @@
-var CityStats = function(url){
-  this.url = url
+var CityStats = function(){
   this.cityInfo = []
 }
 
 CityStats.prototype = {
-  getData: function(){
+  getData: function(url, callback){
     var request = new XMLHttpRequest()
-    request.open('GET', this.url)
+    request.open('GET', url)
     request.onload = function(){
       if (request.status === 200){
         var jsonString = request.responseText
         var cityInfo = JSON.parse(jsonString)
         this.cityInfo = cityInfo.categories
-        console.log(this.cityInfo)
+        console.log('retrieved stats', this.cityInfo)
+        callback(this.cityInfo)
       }
     }.bind(this)
     request.send()
