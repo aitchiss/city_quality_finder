@@ -11,7 +11,7 @@ CityList.prototype = {
       if (request.status === 200){
         var jsonString = request.responseText
         var cityInfo = JSON.parse(jsonString)
-        this.cities = cityInfo._links['ua:item']
+        this.cities = cityInfo._links['ua:items']
       }
 
       callback(this.cities)

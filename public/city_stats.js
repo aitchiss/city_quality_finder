@@ -11,7 +11,6 @@ CityStats.prototype = {
         var jsonString = request.responseText
         var cityInfo = JSON.parse(jsonString)
         this.cityInfo = cityInfo.categories
-        console.log('retrieved stats', this.cityInfo)
         callback(this.cityInfo)
       }
     }.bind(this)
