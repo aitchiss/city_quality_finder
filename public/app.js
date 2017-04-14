@@ -7,6 +7,12 @@ app = function(){
   //gets the data and populates the select menu
   cityList.getData(function(cities){
     citySelectMenu.populateSelect(cities)
+
+    citySelectMenu.selectContainer.addEventListener('change', function(){
+      var selectedCity = this.value
+      var url = cities[selectedCity].href
+      console.log(url)
+    })
   })
 
   cityStats.getData()
