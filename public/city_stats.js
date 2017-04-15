@@ -25,11 +25,9 @@ CityStats.prototype = {
     newRequest.open('GET', url2)
     newRequest.onload = function(){
       if (newRequest.status === 200){
-        console.log('successful')
         var secondJson = newRequest.responseText
         var cityInfo2 = JSON.parse(secondJson)
         this.cityInfo2 = cityInfo2.categories
-        console.log('from city stats - data2', this.cityInfo2)
         callback(this.cityInfo1, this.cityName1, this.cityInfo2, cityName2)
       }
     }.bind(this)

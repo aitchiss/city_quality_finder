@@ -27,27 +27,7 @@ app = function(){
       })
     })
    
-    // citySelectMenu.selectContainer.addEventListener('change', function(){
-    //   var cityName = cities[this.value].name
-    //   var url = cities[this.value].href + 'scores'
-    //   cityStats.getData(url, cityName, function(cityInfo){
-    //     cityDataView.populate(cityInfo1, cityName1, cityInfo2, cityName2)
-    //   }, url, cityName)
-    })
-
-
-
-
-  //   cityToCompareMenu.selectContainer.addEventListener('change', function(){
-  //     var cityName = cities[this.value].name
-  //     var url = cities[this.value].href + 'scores'
-  //     cityStats.getData(url, cityName, function(cityInfo){
-  //       comparisonCityDataView.populate(cityInfo, cityName)
-  //     })
-  //   })
-  // })
-
-
+  })
 
 }
 

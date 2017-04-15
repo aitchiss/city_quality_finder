@@ -13,8 +13,8 @@ CityDataView.prototype = {
     this.clear()
     this.cityName1 = cityName1
     this.cityName2 = cityName2
-    console.log(cityName2, cityInfo2)
     this.series[0].name = cityName1
+    this.series[1].name = cityName2
 
     cityInfo1.forEach(function(category){
       this.categories.push(category.name)
@@ -35,7 +35,7 @@ CityDataView.prototype = {
         renderTo: this.sectionElement
       },
       title: {
-        text: 'Quality of life in ' + this.cityName1
+        text: 'Quality of life in ' + this.cityName1 + ' vs ' + this.cityName2
       },
       colors: ['dodgerblue', 'hotpink'],
       series: this.series,
