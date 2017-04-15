@@ -3,23 +3,49 @@ app = function(){
   var cityList = new CityList('https://api.teleport.org/api/continents/geonames%3AEU/urban_areas/')
   var citySelectMenu = new CitySelect(document.querySelector('#city-select'))
   var cityStats = new CityStats()
-  var cityDataView = new CityDataView(document.querySelector('#city-data'))
+  var cityDataView = new CityDataView(document.querySelector('#city-data'), 'blue')
 
-  //gets the data and populates the select menu
+  var cityToCompareMenu = new CitySelect(document.querySelector('#city-comparison-select'))
+  var comparisonCityDataView = new CityDataView(document.querySelector('#city-to-compare'), 'hotpink')
+
+  var compareBtn = document.querySelector('#compare-btn')
+
+  
   cityList.getData(function(cities){
     citySelectMenu.populateSelect(cities)
-    //adds on change listener which can grab url for more detailed info
-    citySelectMenu.selectContainer.addEventListener('change', function(){
-      //build a url for more detailed city info, and sends the request to the API
-      var cityName = cities[this.value].name
+    cityToCompareMenu.populateSelect(cities)
 
-      var url = cities[this.value].href + 'scores'
-      cityStats.getData(url, cityName, function(cityInfo){
-        //populates the section once cityInfo has been retrieved from API
-        cityDataView.populate(cityInfo, cityName)
+    compareBtn.addEventListener('click', function(){
+      var cityName1 = cities[citySelectMenu.selectContainer.value].name
+      var cityName2 = cities[cityToCompareMenu.selectContainer.value].name
+
+      var url1 = cities[citySelectMenu.selectContainer.value].href + 'scores'
+      var url2 = cities[cityToCompareMenu.selectContainer.value].href + 'scores'
+
+      cityStats.getData(url1, cityName1, url2, cityName2, function(cityInfo1, cityName1, cityInfo2, cityName2){
+        cityDataView.populate(cityInfo1, cityName1, cityInfo2, cityName2)
       })
     })
-  })
+   
+    // citySelectMenu.selectContainer.addEventListener('change', function(){
+    //   var cityName = cities[this.value].name
+    //   var url = cities[this.value].href + 'scores'
+    //   cityStats.getData(url, cityName, function(cityInfo){
+    //     cityDataView.populate(cityInfo1, cityName1, cityInfo2, cityName2)
+    //   }, url, cityName)
+    })
+
+
+
+
+  //   cityToCompareMenu.selectContainer.addEventListener('change', function(){
+  //     var cityName = cities[this.value].name
+  //     var url = cities[this.value].href + 'scores'
+  //     cityStats.getData(url, cityName, function(cityInfo){
+  //       comparisonCityDataView.populate(cityInfo, cityName)
+  //     })
+  //   })
+  // })
 
 
 
