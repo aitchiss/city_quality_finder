@@ -1,6 +1,6 @@
 var CityDataView = function(sectionElement){
   this.sectionElement = sectionElement
-  this.series = [{name: this.cityName1, color: 'dodgerblue', data: []}, {name: 'test', color: 'hotpink', data: []}]
+  this.series = [{name: this.cityName1, color: '#4CD0E2', data: []}, {name: 'test', color: '#FFA653', data: []}]
   this.categories = []
   this.chart = null
   this.cityName1 = null
@@ -37,7 +37,7 @@ CityDataView.prototype = {
       title: {
         text: 'Quality of life in ' + this.cityName1 + ' vs ' + this.cityName2
       },
-      colors: ['dodgerblue', 'hotpink'],
+      colors: ['#4CD0E2', '#FFA653'],
       series: this.series,
       xAxis: {
         categories: this.categories
@@ -50,7 +50,7 @@ CityDataView.prototype = {
       this.sectionElement.removeChild(this.sectionElement.firstChild)
     }
     this.categories = []
-    this.series = [{name: this.cityName1, color: 'dodgerblue', data: []}, {name: 'test', color: 'hotpink', data: []}]
+    this.series = [{name: this.cityName1, color: '#4CD0E2', data: []}, {name: 'test', color: '#FFA653', data: []}]
   },
 
 }

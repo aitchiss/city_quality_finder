@@ -1,0 +1,38 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.select-menu{
+  font-size: 1em;
+  height: 25px;
+  margin: 10px;
+  border: 1px solid #FFA653;
+  background-color: #F5F5F5;
+}
+
+#city-select{
+  border: 1px solid #4CD0E2;
+}
+
+#compare-btn{
+  margin: 10px;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  font-size: 1em;
+  background-color: #5D7FE4;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+
+#selection-items{
+  flex-direction: row;
+}
+
+#city-data{
+  width: 90%;
+}

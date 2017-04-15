@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>homework!</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="main.css">
   <script src='http://code.highcharts.com/highcharts.js'></script>
   <script src="city_list.js"></script>
@@ -12,9 +13,13 @@
 </head>
 <body>
   <header>
+    <h1>European City Comparison Tool</h1>
+    <p>Select two cities from the menus below to compare quality of life data - find out which rates higher for the aspects that matter most to you!</p>
   </header>
-  <select id="city-select"></select>
-  <select id="city-comparison-select"></select>
+  <section id="selection-items">
+    <select id="city-select" class="select-menu"></select>
+    <select id="city-comparison-select" class="select-menu"></select>
+  </section>
   <button id='compare-btn'>compare</button>
   <section id="city-data">
   </section>
